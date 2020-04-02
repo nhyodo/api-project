@@ -1,0 +1,90 @@
+# ls
+alias ll='ls -l'
+alias la='ls -a'
+
+# cd
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias d='cd ~/Dropbox'
+
+# git
+alias g='git'
+alias ga='git add'
+alias gb='git branch'
+alias gc='git commit -m'
+alias gco='git checkout'
+alias gcb='git checkout -b'
+alias gcm='git checkout master'
+alias gd='git diff'
+alias gf='git fetch'
+alias gl='git log'
+alias gp='git push'
+alias gpom='git pull origin master'
+alias gs='git status'
+alias gst='git status'
+
+# rails
+alias b='bundle'
+alias be='bundle exec'
+alias bx='bundle exec'
+alias bi='bundle install'
+alias bo='bundle outdated'
+alias bu='bundle update'
+alias rc='bundle exec rails c'
+
+# vagrant
+alias vh='vagrant halt'
+alias vr='vagrant reload'
+alias vs='vagrant ssh'
+alias vu='vagrant up'
+
+# open
+alias oc='open -a google\ chrome'
+alias os='open -a sublime\ text'
+alias ox='open -a xcode'
+alias jn='jupyter notebook'
+
+# その他一文字
+alias c='clear'
+alias f="open ."
+alias m='mkdir'
+alias o='open'
+
+# bash_profile系
+alias obp='open -a sublime\ text ~/.bash_profile'
+alias sbp='source ~/.bash_profile'
+
+# safety
+alias cp='cp -i'
+alias mv='mv -i'
+alias rm='rm -i'
+
+# server
+alias aries='ssh aries'
+alias taurus='ssh taurus'
+alias cancer='ssh cancer'
+alias gemini='ssh gemini'
+alias leo='ssh leo'
+alias libra='ssh libra'
+alias virgo='ssh virgo'
+alias sco='ssh scorpio'
+alias sag='ssh sagittarius'
+
+# Finderのアクティブウィンドウのパスに移動
+cdf () {
+        target=`osascript -e 'tell application "Finder" to if (count of Finder windows) > 0 then get POSIX path of (target of front Finder window as text)'`
+        if [ "$target" != "" ]
+        then
+                cd "$target"
+                pwd
+        else
+                echo 'No Finder window found' >&2
+        fi
+}
+
+# カレントディレクトリ以下にある空ディレクトリを削除
+cleanup () {
+    find . -type d -maxdepth 2 -empty -exec rmdir -v {} \; 2>/dev/null
+    find . -type d -maxdepth 2 -empty -exec rmdir -v {} \; 2>/dev/null
+}
